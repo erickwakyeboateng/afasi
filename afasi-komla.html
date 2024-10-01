@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Afasi Komla - Portfolio</title>
+    <!-- Latest Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff;
+            margin: 10px;                /* Remove default margin */
+            position: relative;        /* Enable absolute positioning for children */
+            height: 100vh;            /* Full viewport height */
+            
+        }
+
+
+        header {
+            background-image: url('/afasi-header.png'); /* Header image */
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-radius: 15px; /* Curved edges */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 5px solid #007bff; /* Accent color */
+        }
+
+        .social-icons {
+            margin-top: 15px; /* Space between profile and icons */
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px; /* Spacing between icons */
+            font-size: 1.5rem; /* Icon size */
+            transition: color 0.3s; /* Transition for hover effect */
+        }
+
+        .social-icons a:hover {
+            color: #007bff; /* Accent color on hover */
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #007bff; /* Accent color */
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .skills i {
+            font-size: 1.5rem;
+            color: #007bff; /* Accent color */
+            margin-right: 10px;
+        }
+
+        .card {
+            background-color: #1d1f21; /* Dark card background */
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card h5 {
+            color: #007bff; /* Accent color */
+        }
+
+        .achievement-item {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff; /* Accent color */
+            background-color: #0e1012; /* Dark background */
+        }
+
+        .logo {
+            width: 80px; /* Increase logo width */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 auto; /* Center logos */
+        }
+
+        .org-logo {
+            width: 150px; /* Increase logo width */
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px; /* Center logos */
+        }
+
+        footer {
+            background-color: #0e1012; /* Dark footer */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Slider styles */
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider img {
+            width: 500px;  /* Set width to 500px */
+            height: 500px; /* Set height to 500px */
+            display: none; /* Initially hide all images */
+            border-radius: 10px;
+        }
+
+        .slider img.active {
+            display: block; /* Show the active image */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .skills i {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 60px; /* Reduce logo size on smaller screens */
+            }
+        }
+
+
+        /*preloaader*/
+        .preloader {
+            position: fixed;           /* Fixed positioning to cover the entire viewport */
+            top: 0;
+            left: 0;
+            width: 100%;              /* Full width */
+            height: 100%;             /* Full height */
+            background-color: rgba(18, 18, 18, 0.9); /* Semi-transparent dark background */
+            display: flex;            /* Center items */
+            justify-content: center;  /* Center horizontally */
+            align-items: center;      /* Center vertically */
+            z-index: 9999;           /* Ensure it appears on top of other content */
+            font-size: 100px;
+        }
+
+     .letter {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    @media (max-width: 768px) {
+            .preloader {
+                font-size: 50px;
+            }
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader HTML goes here -->
+    <div class="preloader">
+        <span class="letter">A</span>
+        <span class="letter">F</span>
+        <span class="letter">A</span>
+        <span class="letter">S</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">K</span>
+        <span class="letter">O</span>
+        <span class="letter">M</span>
+        <span class="letter">L</span>
+        <span class="letter">A</span>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="/afasi.jpg" alt="Afasi Komla" class="profile-img">
+            <h1>Afasi Komla</h1>
+            <p>Social Entrepreneur | Human Rights Activist | Educationist</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/afasikomla/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.wa.me/+233244337877" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/afasi.komla" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:afasikomla@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="container">
+        <h2 class="section-title">Summary</h2>
+        <p>
+            I am a passionate social entrepreneur from Ghana, dedicated to combating human trafficking and promoting
+            human rights. With extensive experience in community development, I strive to empower individuals and
+            uplift communities through targeted initiatives and projects.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="d-flex flex-wrap">
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-users"></i> Community Engagement</h5>
+                    <p>Engaging communities to promote social awareness and prevent harmful practices.</p>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-hands-helping"></i> Human Rights Activism</h5>
+                    <p>Advocating for human rights, fighting against human trafficking and child labor.</p>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-project-diagram"></i> Project Management</h5>
+                    <p>Leading and managing impactful social projects that empower communities.</p>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-network-wired"></i> Networking</h5>
+                    <p>Building relationships and partnerships to advance social causes.</p>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-chart-line"></i> Strategic Planning</h5>
+                    <p>Developing and implementing strategies for social initiatives.</p>
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card">
+                    <h5><i class="fas fa-comments"></i> Communication</h5>
+                    <p>Effectively communicating with stakeholders and the community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="container">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievement-item">
+            <h5>Anti-Trafficking Success</h5>
+            <p>Successfully led initiatives that rescued over 50 victims of human trafficking across Ghana.</p>
+        </div>
+        <div class="achievement-item">
+            <h5>Community Projects</h5>
+            <p>Implemented over 20 community development projects, improving access to education and healthcare.</p>
+        </div>
+        <div class="achievement-item">
+            <h5>International Collaboration</h5>
+            <p>Collaborated with global organizations in anti-trafficking operations across Sub-Saharan Africa.</p>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="card d-flex flex-row align-items-center mb-3">
+            <img src="/latterday.jpg" class="logo" alt="Logo">
+            <div>
+                <h5>The Church of Jesus Christ of Latter-day Saints</h5>
+                <small>Accra Ghana Mission Logistics Manager(2002-2006 )</small>
+            </div>
+        </div>
+        <div class="card d-flex flex-row align-items-center mb-3">
+            <img src="/ena.jpeg" class="logo" alt="Logo">
+            <div>
+                <h5>Engage Now Africa</h5>
+                <small>Head of Operations and Projects (2006-Date)</small>
+            </div>
+        </div>
+        <div class="card d-flex flex-row align-items-center mb-3">
+            <img src="/equity.jpeg" class="logo" alt="Logo">
+            <div>
+                <h5>Equity International School</h5>
+                <small>CEO (2004-Date)</small>
+            </div>
+        </div>
+        <div class="card d-flex flex-row align-items-center mb-3">
+            <img src="/commonwealth8.7.png" class="logo" alt="Logo">
+            <div>
+                <h5>commonwealth-87 Network</h5>
+                <small>Regional Coordinator (2015 - Date)</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+            <h5>MSc in Development Management</h5>
+            <p>Ghana Institute of Management and Public Administration (2016)</p>
+        </div>
+        <div class="card">
+            <h5>BSc in Operations and Project Management</h5>
+            <p>Ghana Institute of Management and Public Administration (2012)</p>
+        </div>
+        <div class="card">
+            <h5>Secondary School Certificate</h5>
+            <p>Suhum Secondary Technical School (1998)</p>
+        </div>
+    </section>
+
+    <!-- Organizations Section -->
+    <section class="container">
+        <h2 class="section-title">Organizations</h2>
+        <div class="d-flex justify-content-center flex-wrap card">
+            <a href="https://www.commonwealth-87.org/our-team" target="_blank">
+                <img src="/commonwealth8.7.png" class="org-logo" alt="Commonwealth 8.7 Network">
+            </a>
+            <a href="" target="_blank">
+                <img src="/africa-coalition.png" class="org-logo" alt="Organization Logo 2">
+            </a>
+            <a href="/afasi-komla.html">
+                <img src="/global-africans-against-slavery.jpeg" class="org-logo" alt="Organization Logo 3">
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Afasi Komla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Latest Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const letters = document.querySelectorAll('.letter');
+    letters.forEach((letter, index) => {
+        letter.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Hide the preloader after the animation
+    setTimeout(() => {
+        document.querySelector('.preloader').style.display = 'none';
+    }, letters.length * 100 + 500); // Adjust timing as needed
+});
+
+    </script>
+</body>
+
+</html>
